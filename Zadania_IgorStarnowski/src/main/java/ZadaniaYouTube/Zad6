@@ -1,0 +1,2 @@
+== porównuje adresy w pamięci a equals()  porównuje wartości
+tworzenie zmiennych z new powoduje rozbieżności przez to że trafiają one do string poola

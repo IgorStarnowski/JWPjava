@@ -1,0 +1,3 @@
+Adam Adamowski 23 234,34
+Jan Janowski 234 234,56
+Ala Alinska 23 234,56
