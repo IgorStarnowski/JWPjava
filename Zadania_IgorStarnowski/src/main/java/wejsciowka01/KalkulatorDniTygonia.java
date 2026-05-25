@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class KalkulatorDniTygonia {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        System.out.println("Podaj numer dnia: ");
+        System.out.print("Podaj numer dnia: ");
         int day = s.nextInt();
         String dzien = switch (day) {
             case 1 ->"Poniedziałek";

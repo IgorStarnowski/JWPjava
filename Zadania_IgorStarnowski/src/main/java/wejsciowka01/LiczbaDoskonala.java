@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class LiczbaDoskonala {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.println("Podaj liczbę całkowitą do sprawdzenia: ");
+        System.out.print("Podaj liczbę całkowitą do sprawdzenia: ");
         int n = in.nextInt();
         int suma = 0;
         for(int i = 1; i <n; i++){
