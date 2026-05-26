@@ -8,19 +8,7 @@
 
 </head>
 <body>
-<header>
-    <span class="title">MyShop</span>
-
-    <a href="" class="cart-ico">
-        <div>
-            <span>Koszyk</span>
-            <span>(0)</span>
-            <span>0</span>
-            <span>zł</span>
-        </div>
-    </a>
-</header>
-
+<header th:replace="fragments/header :: ShopHeader"></header>
 <div class="main-content">
     <div class="item" th:each="item : ${items}">
         <p class="item-name" th:text="${item.name}">
@@ -31,8 +19,7 @@
             <span th:text="${item.price}"></span>
             <span>zł</span>
         </div>
-
-        <a href="" class="add-btn">Dodaj</a>
+        <a th:href="@{'/add/' + ${item.id}}" class="add-btn">Dodaj</a>
     </div>
 
     <!--    <div class="item">-->
