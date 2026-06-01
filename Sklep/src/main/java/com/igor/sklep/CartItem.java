@@ -31,4 +31,7 @@ public class CartItem {
     public boolean hasZeroItems() {
         return counter == 0;
     }
+    public boolean isEqualId(Item item) {
+        return this.item.equals(item);
+    }
 }

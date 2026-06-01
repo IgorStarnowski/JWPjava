@@ -38,7 +38,7 @@ public class HomeController {
         if(oItem.isPresent()){
             Item item = oItem.get();
             CartItem cartItem = new CartItem(item);
-            cart.addItem(cartItem);
+            cart.addItem(cartItem.getItem());
         }
         return "redirect:/";
     }
