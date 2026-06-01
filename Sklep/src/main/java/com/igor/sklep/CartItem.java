@@ -32,6 +32,6 @@ public class CartItem {
         return counter == 0;
     }
     public boolean isEqualId(Item item) {
-        return this.item.equals(item);
+        return this.item.getId().equals(item.getId());
     }
 }
