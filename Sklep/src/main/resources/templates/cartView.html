@@ -29,13 +29,13 @@
         </td>
         <td th:text="${cartItem.item.name}"></td>
         <td style="display: flex; padding-top: 10px">
-          <a class="mbtn" href="">-</a>
+          <a class="mbtn" th:href="@{'/order/decrease/' + ${cartItem.item.id}}">-</a>
           <p th:text="${cartItem.counter}"></p>
-          <a class="mbtn" href="">+</a>
+          <a class="mbtn" th:href="@{'/order/increase/' + ${cartItem.item.id}}">+</a>
         </td>
         <td th:text="${cartItem.price}"></td>
         <td>
-          <a class="mbtn" href="">X</a>
+          <a class="mbtn" th:href="@{'/order/remove/' + ${cartItem.item.id}}">X</a>
         </td>
       </tr>
     </table>

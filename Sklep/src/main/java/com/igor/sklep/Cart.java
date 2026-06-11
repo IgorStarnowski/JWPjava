@@ -37,13 +37,17 @@ public class Cart {
         );
         recalculatePriceAndCounter();
     }
+    public void RemoveAllItems(Item item){
+        cartItems.removeIf(i->i.isEqualId(item));
+        recalculatePriceAndCounter();
+    }
 
-    public void removeItem(Item item) {
+    public void decreaseItem(Item item) {
         Optional<CartItem> existingItem = getCartItemByItem(item);
         if(existingItem.isPresent()){
             existingItem.get().decreaseCounter();
             if(existingItem.get().getCounter() == 0){
-                cartItems.remove(existingItem.get());
+                RemoveAllItems(item);
             }
         }
         recalculatePriceAndCounter();
@@ -53,5 +57,6 @@ public class Cart {
         this.sum = cartItems.stream().map(CartItem::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
         this.counter = cartItems.stream().map(CartItem::getCounter).reduce(0, Integer::sum);
     }
+
 
 }

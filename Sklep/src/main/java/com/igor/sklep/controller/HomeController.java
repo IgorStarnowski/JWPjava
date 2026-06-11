@@ -2,8 +2,10 @@ package com.igor.sklep.controller;
 
 import com.igor.sklep.Cart;
 import com.igor.sklep.CartItem;
+import com.igor.sklep.ItemOperation;
 import com.igor.sklep.model.Item;
 import com.igor.sklep.repository.ItemRepository;
+import com.igor.sklep.service.CartService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,29 +19,23 @@ import java.util.Optional;
 
 @Controller
 public class HomeController {
-    private final ItemRepository itemRepository;
-    private final Cart cart;
+    private final CartService cartService;
 
     @Autowired
-    public HomeController(ItemRepository itemRepository, Cart cart) {
-        this.itemRepository = itemRepository;
-        this.cart = cart;
+    public HomeController(CartService cartService) {
+        this.cartService = cartService;
     }
 
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("items", itemRepository.findAll());
+        model.addAttribute("items", cartService.getAllItems());
         return "home";
     }
 
     @GetMapping("/add/{itemId}")
     public String addItemToCart(@PathVariable("itemId") Long itemId, Model model){
-        Optional<Item> oItem = itemRepository.findById(itemId);
-        if(oItem.isPresent()){
-            Item item = oItem.get();
-            CartItem cartItem = new CartItem(item);
-            cart.addItem(cartItem.getItem());
-        }
+        cartService.itemOperation(itemId, ItemOperation.INCREASE);
+        model.addAttribute("items", cartService.getAllItems());
         return "redirect:/";
     }
 }
