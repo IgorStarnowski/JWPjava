@@ -58,5 +58,9 @@ public class Cart {
         this.counter = cartItems.stream().map(CartItem::getCounter).reduce(0, Integer::sum);
     }
 
-
+    public void cleanCart(){
+        cartItems.clear();
+        counter = 0;
+        sum = BigDecimal.ZERO;
+    }
 }

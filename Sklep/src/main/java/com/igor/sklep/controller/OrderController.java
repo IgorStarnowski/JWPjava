@@ -2,7 +2,9 @@ package com.igor.sklep.controller;
 
 import com.igor.sklep.Cart;
 import com.igor.sklep.ItemOperation;
+import com.igor.sklep.dto.OrderDTO;
 import com.igor.sklep.service.CartService;
+import com.igor.sklep.service.OrderService;
 import jakarta.persistence.Id;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +18,11 @@ import org.yaml.snakeyaml.events.Event;
 @RequestMapping("/order")
 public class OrderController {
     private final CartService cartService;
-    public OrderController(CartService cartService){
+    private final OrderService orderService;
+
+    public OrderController(CartService cartService, OrderService orderService){
         this.cartService = cartService;
+        this.orderService = orderService;
     }
 
     @GetMapping("/cart")
@@ -45,7 +50,8 @@ public class OrderController {
         return "summary";
     }
     @PostMapping("/saveorder")
-    public String saveOrder(){
+    public String saveOrder(OrderDTO orderDTO){
+        orderService.saveOrder(orderDTO);
         return "redirect:/";
     }
 }

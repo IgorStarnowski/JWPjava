@@ -1,41 +1,41 @@
 package com.igor.sklep.dto;
 
 public class OrderDTO {
-    String name;
-    String surname;
+    String firstName;
+    String lastName;
     String address;
-    String postalCode;
+    String postCode;
     String city;
 
     public OrderDTO() {
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getCity() {
         return city;
     }
 
-    public String getPostalCode() {
-        return postalCode;
+    public String getPostCode() {
+        return postCode;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public void setAddress(String address) {
@@ -46,8 +46,8 @@ public class OrderDTO {
         this.city = city;
     }
 
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
     }
 }
 
